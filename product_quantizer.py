@@ -20,6 +20,7 @@ class ProductQuantizer:
             (centroids, assignments) = kmeans2(subspace, self.K, iter=32)
             self._centroids[m,:,:] = centroids
             self._dataset[:,m] = np.uint8(assignments)
+            
     def quantize(self, vector):
         """Quantizes the input vector based on PQ parameters"""
         quantized = np.empty((self.M,), dtype=np.uint8)
